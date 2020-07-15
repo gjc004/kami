@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+    <input type="checkbox" id="all"><label for="all">全选</label>
+    <button id="reverse">反选</button>
+    <ul id="list">
+        <li>
+            <input type="checkbox" id="zs"><label for="zs">张三</label>
+        </li>
+        <li>
+            <input type="checkbox" id="ls"><label for="ls">李四</label>
+        </li>
+        <li>
+            <input type="checkbox" id="mz"><label for="mz">麻子</label>
+        </li>
+    </ul>
+    <script>
+    // 全选
+    $('#all').on('click', function() {
+        $('#list input').prop('checked', $(this).prop('checked'));
+    });
+
+    // 反选
+    $('#reverse').on('click', function() {
+        $('#list input').each(function(idx, item) {
+            $(item).prop('checked', !$(item).prop('checked'));
+        });
+        
+        controlAll();
+    });
+
+    // 单选
+    $('#list input').on('click', function() {
+        controlAll();
+    });
+
+    function controlAll() {
+        var bBar = true;
+        $('#list input').each(function(idx, item) {
+            if(!$(item).prop('checked')) bBar = false;
+            $('#all').prop('checked', bBar);
+        });
+    }
+    </script>
+</body>
+
+</html>

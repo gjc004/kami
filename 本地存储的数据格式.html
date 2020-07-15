@@ -12,12 +12,13 @@
 <body>
     <script>
         var todolist = [{
+
             title: '我今天吃八个馒头',
             done: false
         }, {
             title: '我今天学习jq',
             done: false
-        }, ];
+        },];
         // localStorage.setItem("todo", todolist);
         // 1. 本地存储里面只能存储字符串的数据格式 把我们的数组对象转换为字符串格式 JSON.stringify()
         localStorage.setItem("todo", JSON.stringify(todolist));
